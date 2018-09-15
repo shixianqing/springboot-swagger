@@ -1,14 +1,21 @@
 package com.swagger.springbootswagger.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * @Author:shixianqing
  * @Date:2018/9/1417:02
  * @Description:
  **/
+@ApiModel(description = "用户信息")
 public class User {
 
+    @ApiModelProperty(name = "userNo",value = "用户编号")
     private int userNo; //用户编号
+    @ApiModelProperty(name = "userName",value = "用户名称")
     private String userName; //用户编号
+    @ApiModelProperty(name = "age",value = "用户年龄")
     private int age; //用户年龄
 
 
