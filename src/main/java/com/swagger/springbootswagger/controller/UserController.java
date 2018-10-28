@@ -62,10 +62,6 @@ public class UserController {
         return map;
     }
 
-    @RequestMapping(value = "/upload",headers = "Content-type=multipart/form-data",method = RequestMethod.POST)
-    public void upload(@ApiParam(name = "file",value = "上传文件") MultipartFile file){
-
-    }
 
     @RequestMapping(value = "addUserForPost",method = RequestMethod.POST,headers = "Content-Type=application/x-www-form-urlencoded")
     @ApiOperation(value = "表单形式添加用户")
@@ -86,5 +82,19 @@ public class UserController {
         RESPONSE.put("msg","添加成功");
 
         return RESPONSE;
+    }
+
+
+    @RequestMapping(value = "/upload",headers = "Content-type=multipart/form-data",method = RequestMethod.POST)
+    @ApiOperation(value = "文件上传")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="userName",value = "用户名称",paramType = "query"),
+            @ApiImplicitParam(name = "age",value = "用户年龄",paramType = "query")
+    })
+    public void upload(@ApiParam(name = "file",value = "上传文件") MultipartFile file,String userName,Integer age){
+
+        System.out.println(file.getOriginalFilename());
+        System.out.println(userName);
+        System.out.println(age);
     }
 }
